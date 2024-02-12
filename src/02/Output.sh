@@ -1,0 +1,46 @@
+#!/bin/bash
+echo "HOSTNAME: $HOSTNAME
+TIMEZONE: $TIMEZONE
+USER: $USER
+OS: $OS
+DATE: $DATE
+UPTIME: $UPTIME
+UPTIME_SEC: $UPTIME_SEC
+IP: $IP
+MASK: $MASK
+GATEWAY: $GATEWAY
+RAM_TOTAL: $RAM_TOTAL
+RAM_USED: $RAM_USED
+RAM_FREE: $RAM_FREE
+SPACE_ROOT: $SPACE_ROOT
+SPACE_ROOT_USED: $SPACE_ROOT_USED
+SPACE_ROOT_FREE: $SPACE_ROOT_FREE"
+
+read -p "Хотите записать данные в файл? (Y/n): " answer
+
+if [[ $answer =~ ^[Yy]$ ]]; then
+
+filename=$(date +"%d_%m_%Y_%H_%M_%S").status
+echo "HOSTNAME: $HOSTNAME
+TIMEZONE: $TIMEZONE
+USER: $USER
+OS: $OS
+DATE: $DATE
+UPTIME: $UPTIME
+UPTIME_SEC: $UPTIME_SEC
+IP: $IP
+MASK: $MASK
+GATEWAY: $GATEWAY
+RAM_TOTAL: $RAM_TOTAL
+RAM_USED: $RAM_USED
+RAM_FREE: $RAM_FREE
+SPACE_ROOT: $SPACE_ROOT
+SPACE_ROOT_USED: $SPACE_ROOT_USED
+SPACE_ROOT_FREE: $SPACE_ROOT_FREE" > $filename
+
+elif [[ $answer =~ ^[Nn]$ ]]; then 
+    exit 0;
+else 
+    echo "Abort!"
+    exit 1
+fi
